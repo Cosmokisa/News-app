@@ -1,33 +1,26 @@
-import {
-    Card,
-    CardContent,
-    Typography,
-    CardMedia,
-    Button,
-} from "@mui/material";
+import '../styles/article.css';
 
 function NewsCard({ article }) {
     function onBookmark() {
-        alert("Clicked");
+        alert('Clicked');
     }
     return (
-        <Card>
-            <CardMedia
-                component="img"
-                image={article.urlToImage}
-                alt={article.title}
+        <div className="article">
+            <button className="article-bookmark" onClick={onBookmark}>
+                Save
+            </button>
+            <h3 className="article-title">{article.title}</h3>
+            <p className="article-author"> By {article.author}</p>
+            <img
+                className="article-img"
+                src={article.urlToImage}
+                alt="article image"
             />
-            <CardContent>
-                <Typography variant="h6">{article.title}</Typography>
-                <Typography variant="body2">{article.description}</Typography>
-                <Button
-                    onClick={onBookmark}
-                    variant="outlined"
-                >
-                    Save
-                </Button>
-            </CardContent>
-        </Card>
+            <p className="article-content">{article.content}</p>
+            <a className="article-link" href={article.url}>
+                Read more »
+            </a>
+        </div>
     );
 }
 

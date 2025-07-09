@@ -1,8 +1,8 @@
-import { getNews } from "../services/news-services.js";
-import { useState, useEffect } from "react";
-import Article from "../components/Article.jsx";
+import { getNews } from '../services/news-services.js';
+import { useState, useEffect } from 'react';
+import Article from '../components/Article.jsx';
 
-function Home({category}) {
+function Home({ category }) {
     const [articles, setArticles] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -11,12 +11,12 @@ function Home({category}) {
         const loadArticles = async () => {
             try {
                 const data = await getNews({
-                    category: "general",
+                    category: 'general',
                 });
                 setArticles(data);
             } catch (error) {
-                console.error("Failed to load articles:", error);
-                setError("Failed to load articles.");
+                console.error('Failed to load articles:', error);
+                setError('Failed to load articles.');
             } finally {
                 setLoading(false);
             }
@@ -24,7 +24,6 @@ function Home({category}) {
 
         loadArticles();
     }, [category]);
-
 
     return (
         <div>

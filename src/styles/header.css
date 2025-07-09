@@ -1,0 +1,20 @@
+.header-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    font-weight: 700;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin: 3.5rem 0 0.5rem 0;
+}
+
+.header-text {
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: #333333;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #000000;
+}

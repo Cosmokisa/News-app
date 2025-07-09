@@ -1,0 +1,62 @@
+.article {
+    border-bottom: 1px dashed #bbbbbb;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.article-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    color: #000000;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.article-author {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #444444;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: 0.25rem;
+}
+
+.article-img {
+    width: 100%;
+    height: auto;
+    max-width: 250px;
+    float: left;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+    border: 2px solid #333333;
+    border-radius: 0;
+    filter: grayscale(100%) contrast(1.1);
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.article-content {
+    text-align: justify;
+    margin-bottom: 1rem;
+    color: #222222;
+}
+
+.article-link {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 2px;
+    transition:
+        color 0.2s,
+        border-bottom-color 0.2s;
+}
+
+.article-link:hover {
+    color: #666666;
+    border-bottom-color: #666666;
+}

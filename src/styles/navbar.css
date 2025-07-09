@@ -1,0 +1,31 @@
+.navbar {
+    border-top: 1px dashed #777777;
+    border-bottom: 1px dashed #777777;
+    padding: 1.2rem 0;
+    margin: 2.5rem 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #f8f8f8;
+}
+
+.navbar-link {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #222222;
+    padding: 0.5rem 2rem;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.navbar-link:hover {
+    color: #666666;
+    text-decoration: underline;
+}
+
+.navbar .active {
+    color: #c1bdbd;
+}
