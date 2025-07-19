@@ -9,28 +9,28 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = 'https://newsapi.org/v2';
 
 export const getNews = async ({
-    q = 'keyword',
-    category,
-    language,
-    sortBy,
-    from,
-    to,
-}) => {
+                                  q = 'keyword',
+                                  category,
+                                  language,
+                                  sortBy,
+                                  from,
+                                  to,
+                              }) => {
     //if category is provided - top-headlines endpoint must be used
     const endPoint = category ? 'top-headlines' : 'everything';
     const params = category
         ? { category, pageSize: '50', apiKey: API_KEY }
         : //for fetching everything else except categories
-          {
-              q,
-              searchIn: 'title',
-              language,
-              sortBy,
-              from,
-              to,
-              pageSize: '50',
-              apiKey: API_KEY,
-          };
+        {
+            q,
+            searchIn: 'title',
+            language,
+            sortBy,
+            from,
+            to,
+            pageSize: '50',
+            apiKey: API_KEY,
+        };
 
     try {
         const response = await axios.get(`${BASE_URL}/${endPoint}`, { params });

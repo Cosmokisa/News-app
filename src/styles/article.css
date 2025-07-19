@@ -28,7 +28,7 @@
 
 .article-img {
     width: 100%;
-    height: auto;
+    height: 160px;
     max-width: 250px;
     float: left;
     margin-right: 1.5rem;
@@ -59,4 +59,24 @@
 .article-link:hover {
     color: #666666;
     border-bottom-color: #666666;
+}
+
+.article-bookmark{
+    position:absolute;
+    right:20px;
+    bottom: 50px;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 0.8rem 2rem;
+    border-radius: 0;
+    transition: background-color 0.2s;
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.article-bookmark:hover{
+    background-color: red;
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
