@@ -5,22 +5,22 @@
 }
 
 .newspaper-container {
-    font-family: 'Lora', serif;
-    background-color: #f0f0f0;
-    color: #111111;
-    line-height: 1.5;
-    overflow-x: hidden;
-}
-
-.newspaper-page {
     background-color: #ffffff;
     border: 4px double #000000;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-    max-width: 80%;
+    max-width: 1400px;
     margin: 2.5rem auto;
     padding: 3rem;
     position: relative;
     z-index: 1;
+}
+
+.newspaper-page {
+    display: flex;
+    gap: 20px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .scroll-btn {
@@ -58,4 +58,15 @@
     background-color: red;
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar {
+    border: 2px solid #000000;
+    padding: 1.5rem;
+    background-color: #fcfcfc;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    font-family: "Lora", serif;
+    flex-shrink: 0;
+    height:85vh;
+    align-content:center;
 }

@@ -1,6 +1,6 @@
 .search-form {
-    padding: 1.5rem;
     font-family: "Lora", serif;
+    padding:2rem 0 2rem 0;
 }
 
 .search-input {
@@ -14,8 +14,6 @@
 }
 
 .search-btn {
-    width: 100%;
-    background-color: #000000;
     color: #ffffff;
     padding: 0.8rem;
     border-radius: 0;
