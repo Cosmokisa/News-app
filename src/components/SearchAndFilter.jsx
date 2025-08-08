@@ -1,6 +1,8 @@
-import React from 'react';
+import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import '../styles/search&filter.css';
+import filterIcon from '../assets/filter.svg';
+import closeIcon from '../assets/close.svg';
 
 // This component uses URLSearchParams to manage the URL's query string for filtering and search.
 // I use its `get()`, `set()`, and `delete()` methods to interact with individual query parameters.
@@ -8,6 +10,9 @@ import '../styles/search&filter.css';
 
 function SearchAndFilter() {
     const [urlSearchParams, setUrlSearchParams] = useSearchParams();
+    const [isOpen, setIsOpen] = useState(false);
+
+    const togglePanel = () => setIsOpen((prev) => !prev);
 
     // --- Functions to handle changes for each input ---
 
@@ -60,118 +65,100 @@ function SearchAndFilter() {
     };
 
     return (
-        <div className="search-and-filter-container">
-            <h3 className="search-title">SEARCH</h3>
-            <form onSubmit={(e) => e.preventDefault()} className="search-form">
-                <input
-                    type="text"
-                    placeholder="Type to search news..."
-                    className="search-input"
-                    value={urlSearchParams.get('q') || ''}
-                    onChange={handleSearchChange}
+        <>
+            <button className="filter-toggle" onClick={togglePanel}>
+                <img
+                    src={isOpen ? closeIcon : filterIcon}
+                    alt="Toggle Filter Panel"
                 />
-            </form>
-            <div className="filter-container">
-                <h3 className="filter-title">SORT BY</h3>
-                <label>
+            </button>
+
+            <div
+                className={`search-and-filter-container ${isOpen ? 'open' : ''}`}
+            >
+                <h3 className="search-title">SEARCH</h3>
+                <form
+                    onSubmit={(e) => e.preventDefault()}
+                    className="search-form"
+                >
                     <input
-                        type="radio"
-                        name="sortBy"
-                        value="popularity"
-                        checked={urlSearchParams.get('sortBy') === 'popularity'}
-                        onChange={(e) => handleRadioChange('sortBy', e)}
+                        type="text"
+                        placeholder="Type to search news..."
+                        className="search-input"
+                        value={urlSearchParams.get('q') || ''}
+                        onChange={handleSearchChange}
                     />
-                    POPULARITY
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        name="sortBy"
-                        value="publishedAt"
-                        checked={
-                            urlSearchParams.get('sortBy') === 'publishedAt'
-                        }
-                        onChange={(e) => handleRadioChange('sortBy', e)}
-                    />
-                    MOST RECENT
-                </label>
-                <h3 className="filter-title">LANGUAGE</h3>
-                <label>
-                    <input
-                        type="radio"
-                        name="language"
-                        value="es"
-                        checked={urlSearchParams.get('language') === 'es'}
-                        onChange={(e) => handleRadioChange('language', e)}
-                    />
-                    SPANISH
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        name="language"
-                        value="fr"
-                        checked={urlSearchParams.get('language') === 'fr'}
-                        onChange={(e) => handleRadioChange('language', e)}
-                    />
-                    FRENCH
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        name="language"
-                        value="it"
-                        checked={urlSearchParams.get('language') === 'it'}
-                        onChange={(e) => handleRadioChange('language', e)}
-                    />
-                    ITALIAN
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        name="language"
-                        value="pt"
-                        checked={urlSearchParams.get('language') === 'pt'}
-                        onChange={(e) => handleRadioChange('language', e)}
-                    />
-                    PORTUGUESE
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        name="language"
-                        value="ar"
-                        checked={urlSearchParams.get('language') === 'ar'}
-                        onChange={(e) => handleRadioChange('language', e)}
-                    />
-                    ARABIC
-                </label>
-                <h3 className="filter-title">PUBLICATION PERIOD</h3>
-                <label className="filter-date_label">
-                    FROM:
-                    <input
-                        type="date"
-                        name="from"
-                        value={urlSearchParams.get('from') || ''}
-                        onChange={(e) => handleDateChange('from', e)}
-                    />
-                </label>
-                <label className="filter-date_label">
-                    TO:
-                    <input
-                        type="date"
-                        name="to"
-                        value={urlSearchParams.get('to') || ''}
-                        onChange={(e) => handleDateChange('to', e)}
-                    />
-                </label>
+                </form>
+                <div className="filter-container">
+                    <h3 className="filter-title">SORT BY</h3>
+                    <label>
+                        <input
+                            type="radio"
+                            name="sortBy"
+                            value="popularity"
+                            checked={
+                                urlSearchParams.get('sortBy') === 'popularity'
+                            }
+                            onChange={(e) => handleRadioChange('sortBy', e)}
+                        />
+                        POPULARITY
+                    </label>
+                    <label>
+                        <input
+                            type="radio"
+                            name="sortBy"
+                            value="publishedAt"
+                            checked={
+                                urlSearchParams.get('sortBy') === 'publishedAt'
+                            }
+                            onChange={(e) => handleRadioChange('sortBy', e)}
+                        />
+                        MOST RECENT
+                    </label>
+                    <h3 className="filter-title">LANGUAGE</h3>
+                    {['es', 'fr', 'it', 'pt', 'ar'].map((lang) => (
+                        <label key={lang}>
+                            <input
+                                type="radio"
+                                name="language"
+                                value={lang}
+                                checked={
+                                    urlSearchParams.get('language') === lang
+                                }
+                                onChange={(e) =>
+                                    handleRadioChange('language', e)
+                                }
+                            />
+                            {lang.toUpperCase()}
+                        </label>
+                    ))}
+                    <h3 className="filter-title">PUBLICATION PERIOD</h3>
+                    <label className="filter-date_label">
+                        FROM:
+                        <input
+                            type="date"
+                            name="from"
+                            value={urlSearchParams.get('from') || ''}
+                            onChange={(e) => handleDateChange('from', e)}
+                        />
+                    </label>
+                    <label className="filter-date_label">
+                        TO:
+                        <input
+                            type="date"
+                            name="to"
+                            value={urlSearchParams.get('to') || ''}
+                            onChange={(e) => handleDateChange('to', e)}
+                        />
+                    </label>
+                </div>
+                {urlSearchParams.toString() !== '' && (
+                    <button onClick={handleClearAll} className="clear-btn">
+                        Clear all filters & search
+                    </button>
+                )}
             </div>
-            {urlSearchParams.toString() !== '' && (
-                <button onClick={handleClearAll} className="clear-btn">
-                    Clear All Filters & Search
-                </button>
-            )}
-        </div>
+        </>
     );
 }
 

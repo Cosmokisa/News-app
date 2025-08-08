@@ -8,19 +8,17 @@
     background-color: #ffffff;
     border: 4px double #000000;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 2.5rem auto;
     padding: 3rem;
     position: relative;
     z-index: 1;
+    height:auto;
 }
 
-.newspaper-page {
-    display: flex;
-    gap: 20px;
-    margin: 0 auto;
-    width: 100%;
-    box-sizing: border-box;
+.filter {
+    float:left;
+    margin-right:2rem;
 }
 
 .scroll-btn {
@@ -28,9 +26,9 @@
     bottom: 20px;
     right: 20px;
     z-index: 1000;
-    background-color: #818181;
+    background-color: #ffffff;
     color: black;
-    border: none;
+    border: 1px solid black;
     border-radius: 10%;
     width: 100px;
     height: 50px;
@@ -54,19 +52,31 @@
     transform: translateY(-2px);
 }
 
-.scroll-btn:active {
-    background-color: red;
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+@media (max-width: 1440px) {
+    .newspaper-container  {
+        max-width: 1300px;
+    }
+    .sidebar{
+        margin-bottom:2rem;
+    }
 }
 
-.sidebar {
-    border: 2px solid #000000;
-    padding: 1.5rem;
-    background-color: #fcfcfc;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-    font-family: "Lora", serif;
-    flex-shrink: 0;
-    height:50vh;
-    align-content:center;
+@media (max-width: 769px) {
+    .newspaper-container  {
+        max-width: 750px;
+    }
+    .newspaper-page {
+        display:block;
+    }
+    .filter{
+        float: none;
+        margin-bottom:2rem;
+        width: 100%;
+    }
+}
+
+@media (max-width:430px) {
+    .newspaper-container  {
+        max-width: 410px;
+    }
 }

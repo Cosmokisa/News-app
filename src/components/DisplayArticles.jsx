@@ -70,15 +70,24 @@ function DisplayArticles({ defaultCategory }) {
                     <Article article={article} key={article.url} />
                 ))
             ) : (
-                <p
+                <div
                     style={{
-                        fontFamily: '"Oswald", sans-serif',
-                        color: '#777777',
-                        fontSize: '1.2rem',
+                        textAlign: 'center',
+                        height: '100vw',
                     }}
                 >
-                    No articles found for your current criteria.
-                </p>
+                    <p
+                        style={{
+                            fontFamily: "'Lora', serif",
+                            fontStyle: 'italic',
+                            fontSize: '1rem',
+                            color: '#444444',
+                            marginTop: '4rem',
+                        }}
+                    >
+                        No articles found for your current criteria.
+                    </p>
+                </div>
             )}
         </div>
     );

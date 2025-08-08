@@ -7,3 +7,9 @@
     font-size: 0.9rem;
     font-family: "Lora", serif;
 }
+
+@media (max-width: 769px) {
+    .footer  {
+        font-size: 0.5rem;
+    }
+}
