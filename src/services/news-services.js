@@ -4,7 +4,7 @@ import axios from 'axios';
 const BASE_URL =
     import.meta.env.MODE === 'development'
         ? 'http://localhost:5000/api/news'
-        : 'https://your-backend-url.onrender.com/api/news';
+        : 'https://news-app-y01n.onrender.com/api/news';
 
 export const getNews = async ({ q, category, language, sortBy, from, to }) => {
     // Params to send to backend
