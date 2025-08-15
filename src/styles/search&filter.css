@@ -105,6 +105,15 @@
         font-size: 1rem;
     }
 
+    .search-form input,
+    .filter-container input[type="date"] {
+        margin: 0.2rem 0 0.2rem 0;
+    }
+
+    .clear-btn {
+        margin-top: 0;
+    }
+
     .filter-toggle {
         padding: 0.2rem;
     }
